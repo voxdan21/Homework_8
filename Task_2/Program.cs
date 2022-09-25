@@ -10,31 +10,14 @@
 
 // 5 2 6 7
 
-// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
-
-
-//Задал рандомный массив
-int[,] myArr = new int[4, 4];
-
-Random ran = new Random();
-//Заполнен рандомными цифрами
-for (int i = 0; i < myArr.GetLength(0); i++)
-{
-    for (int j = 0; j < myArr.GetLength(1); j++)
-    {
-        myArr[i, j] = ran.Next(1, 4);
-        Console.Write(myArr[i, j] + " ");
-    }
-    Console.WriteLine();
-}
-
+// Метод считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов:
 void SmallSumRowArray(int[,] array)
 {
     int [] sum = new int[array.GetLength(0)];
 
-    for (int i = 0; i < myArr.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < myArr.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             sum[i] = array[i, j] + sum[i];
             
@@ -55,5 +38,23 @@ void SmallSumRowArray(int[,] array)
 
     Console.WriteLine($"Номер строки {numberSrting} с наименьшей суммой элементов:{result}");
 }
+
+
+//Задал рандомный массив
+int[,] myArr = new int[4, 4];
+
+Random ran = new Random();
+//Заполнен рандомными цифрами
+for (int i = 0; i < myArr.GetLength(0); i++)
+{
+    for (int j = 0; j < myArr.GetLength(1); j++)
+    {
+        myArr[i, j] = ran.Next(1, 4);
+        Console.Write(myArr[i, j] + " ");
+    }
+    Console.WriteLine();
+}
+
+
 
 SmallSumRowArray(myArr);
