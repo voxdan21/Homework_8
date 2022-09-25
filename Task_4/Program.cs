@@ -22,10 +22,10 @@ int[,,] arrayTrippe()
 int CheckNewNumber(int[] array, int min, int max)
 {
     Random ran = new Random();
-    int x = ran.Next(min, max);
+    int x = ran.Next(min, max+1);
     for (int n = 0; n < array.Length; n++)
     {
-        if (array[n] == x)
+        if (array[n] == x) 
         {
             return CheckNewNumber(array, min, max);
         }
@@ -45,7 +45,6 @@ int[,,] arrayTrippeRandom(int[,,] array)
     int max = int.Parse(Console.ReadLine());
     int[] tempArray = new int[max - min];
     int count = 0;
-    Random ran = new Random();
     if (tempArray.Length < (array.GetLength(0) + array.GetLength(1) + array.GetLength(2)))
     {
         throw new Exception("Отрезок уникальных значений меньше, чем колличество ячеек в массиве");
