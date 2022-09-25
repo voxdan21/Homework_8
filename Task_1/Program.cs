@@ -34,11 +34,25 @@ int[,] SortArrayDescending(int[,] array)
     return array;
 }
 
+//печать массива
+static void Print(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
 
 //Задал рандомный массив
 int[,] myArr = new int[4, 7];
 
 Random ran = new Random();
+Console.WriteLine("Старый массив: ");
+
 //Заполнен рандомными цифрами
 for (int i = 0; i < myArr.GetLength(0); i++)
 {
@@ -50,15 +64,9 @@ for (int i = 0; i < myArr.GetLength(0); i++)
     Console.WriteLine();
 }
 
+
+
 SortArrayDescending(myArr);
 Console.WriteLine();
-
-for (int i = 0; i < myArr.GetLength(0); i++)
-{
-    for (int j = 0; j < myArr.GetLength(1); j++)
-    {
-
-        Console.Write(myArr[i, j] + " ");
-    }
-    Console.WriteLine();
-}
+Console.WriteLine("Новый массив: ");
+Print(myArr);
